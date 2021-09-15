@@ -9,10 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpSession;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @RequestMapping("/basic")
 @Controller
@@ -86,6 +83,17 @@ public class BasicController {
     @GetMapping("/attribute")
     public String attribute() {
         return "/basic/attribute";
+    }
+
+    @GetMapping("/each")
+    public String each(Model model) {
+        List<User> users = Arrays.asList(
+                new User("userA", 10),
+                new User("userB", 20),
+                new User("userC", 30)
+        );
+        model.addAttribute("users", users);
+        return "/basic/each";
     }
 
     @Component("helloBean")

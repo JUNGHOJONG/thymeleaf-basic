@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<h1>반복</h1>
+<body>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>userName</th>
+                <th>age</th>
+                <th>etc</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="user : ${users}">
+                <td th:text="${userStat.count}">Id</td>
+                <td th:text="${user.userName}">userName</td>
+                <td th:text="${user.age}">age</td>
+                <td>
+                    index = <span th:text="${userStat.index}"></span>
+                    count = <span th:text="${userStat.count}"></span>
+                    size = <span th:text="${userStat.size}"></span>
+                    current = <span th:text="${userStat.current}"></span>
+                    first = <span th:text="${userStat.first}"></span>
+                    last = <span th:text="${userStat.last}"></span>
+                    even = <span th:text="${userStat.even}"></span>
+                    odd = <span th:text="${userStat.odd}"></span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
