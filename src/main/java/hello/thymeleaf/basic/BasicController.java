@@ -87,13 +87,23 @@ public class BasicController {
 
     @GetMapping("/each")
     public String each(Model model) {
+        addUsers(model);
+        return "/basic/each";
+    }
+
+    private void addUsers(Model model) {
         List<User> users = Arrays.asList(
                 new User("userA", 10),
                 new User("userB", 20),
                 new User("userC", 30)
         );
         model.addAttribute("users", users);
-        return "/basic/each";
+    }
+
+    @GetMapping("/condition")
+    public String condition(Model model) {
+        addUsers(model);
+        return "/basic/condition";
     }
 
     @Component("helloBean")
